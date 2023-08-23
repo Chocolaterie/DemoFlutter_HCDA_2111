@@ -23,7 +23,7 @@ class HomePage extends StatefulWidget {
  */
 class EniValidator {
   /**
-   * Verifier la validiter d'un champ
+   * Verifier la validité d'un champ
    */
   static String? validateEmail(String? value) {
     // Validateur
