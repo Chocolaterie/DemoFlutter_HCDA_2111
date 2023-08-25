@@ -18,6 +18,10 @@ class DemoProviderApp extends StatelessWidget {
 }
 
 class DemoProviderPage extends StatelessWidget {
+
+  /**
+   * Lancer le provider counter
+   */
   void callProviderIncrement(BuildContext context) {
     // Appeler singleton
     CounterProvider counterProvider = Provider.of<CounterProvider>(context, listen: false);
@@ -25,6 +29,13 @@ class DemoProviderPage extends StatelessWidget {
     counterProvider.incrementCounter();
   }
 
+  /**
+   * Arreter le provider counter
+   */
+  void stopProviderCounter(BuildContext context) {
+    Provider.of<CounterProvider>(context, listen: false).stop();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +52,13 @@ class DemoProviderPage extends StatelessWidget {
                 onPressed: () {
                   callProviderIncrement(context);
                 },
-                child: Text("Increment"))
+                child: Text("Increment")),
+            // Appeler le provider
+            ElevatedButton(
+                onPressed: () {
+                  stopProviderCounter(context);
+                },
+                child: Text("Stop"))
           ],
         ),
       ),
